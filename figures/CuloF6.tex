@@ -1,0 +1,40 @@
+\documentclass{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{forest}
+
+\begin{document}
+
+% 3.6
+\begin{forest}
+  %  propagate through tree
+ for tree = {
+  dot/.style={tikz+={\draw [#1] (.child anchor) circle [radius=2pt];}},
+  dot = {fill = {yellow}},
+  align = left,
+  parent anchor = north,
+  child anchor = north,
+ }
+  [verlassen\\Pred
+      [Er\\Subj]
+      [hat\\Fin ] 
+      [sich\\Dobj ]
+      [{,}\\Conj 
+	[darauf\\Probj ]
+	[sehen\\Probj
+	  [dass\\NA ]
+	  [wir\\Subj ]
+	  [drinnen\\ADV\_Loc
+	    [von\\ADV\_Loc ]
+	  ]
+	  [Lächeln\\Dobj 
+	    [sein\\Dobj ]
+	  ]
+	  [können\\Fin ]
+	]
+      ]
+      [.\\NA ]
+      ]
+\end{forest}
+
+\end{document}

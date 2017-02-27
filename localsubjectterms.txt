@@ -1,0 +1,89 @@
+alignment
+automatic alignment
+clause alignment
+phrase alignment
+sentence alignment
+word alignment
+alignment tool
+annotator
+annotation
+multi-layer annotation
+stand-off annotation
+apposition
+complement
+consistency checking
+constituent structure
+copula
+crossing line
+disambiguation
+domain coverage
+domain-specific corpus
+empty link
+encoding
+explicitation
+explicitness
+gold standard
+grammatical function
+headwords
+hypernym
+hyponym
+implicitation
+information structure
+inter-annotator agreement
+key-logging
+language contrast
+lexicon extraction
+machine translation
+mark-up
+modulation
+multi-word
+negation
+normalization
+parallel corpus
+post-modification
+predicate
+predicator
+query
+query language
+revision phase
+simplification
+Smultron
+source language
+synset
+syntactic annotation
+target language
+target text
+term candidate
+term extraction
+terminology
+termhood
+translation corpus
+translation direction
+translation process research
+translation unit
+macro translation unit
+micro translation unit
+Translog
+treebanking
+valency
+wordnets
+Begriff
+Benennung
+Definition
+Dolmetschen
+Konferenzdolmetschen
+Konsekutivdolmetschen
+Simultandolmetschen
+einpsrachig
+Eintragsstruktur
+Einwortterm
+Fachkorpus
+Fachterminologie
+Glossar
+Kollokation
+Konkordanz
+mehrsprachig
+Mehrwortterm
+Referenzkorpus
+relative Häufigkeit
+Verdolmetschung

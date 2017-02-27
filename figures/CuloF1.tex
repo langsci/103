@@ -1,0 +1,93 @@
+\documentclass{standalone}
+
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+
+\usetikzlibrary{shapes,arrows}
+\usetikzlibrary{positioning,fit,calc}
+
+\begin{document}
+
+\tikzstyle{blockA} = [rectangle, draw, thick, text centered, minimum width=1.5cm] % words
+\tikzstyle{blockB} = [rectangle, draw, dashed, thick] % dashed
+\tikzstyle{blockC} = [rectangle, inner sep=0, outer sep=0] % invisible
+\tikzstyle{blockText} = [rectangle, font=\bf]
+\tikzstyle{LineSolid} = [draw, solid, thick]
+\tikzstyle{LineDashed} = [draw, dashed, thick]
+
+\begin{tikzpicture}
+
+  % German words
+  \node [blockA] (word1_G) {word 1};
+  \node [blockA, right = 0.1cm of word1_G] (word2_G) {word 2};
+  \node [blockA, right = 0.3cm of word2_G] (word3_G) {word 3};
+  \node [blockA, right = 0.3cm of word3_G] (word4_G) {word 4};
+  \node [blockA, right = 0.45cm of word4_G] (word5_G) {word 5};
+  \node [blockA, right = 0.45cm of word5_G] (word6_G) {word 6};
+  
+  %English words
+  \node [blockA, below = 1.5cm of word1_G] (word1_E) {word 1};
+  \node [blockA, right = 0.3cm of word1_E] (word2_E) {word 2};
+  \node [blockA, right = 0.3cm of word2_E] (word3_E) {word 3};
+  \node [blockA, right = 0.45cm of word3_E] (word4_E) {word 4};
+  \node [blockA, right = 0.1cm of word4_E] (word5_E) {word 5};
+  \node [blockA, right = 0.1cm of word5_E] (word6_E) {word 6};
+  
+  % invisible nodes for easier placing
+  \node [blockC, fit = (word1_G) (word2_G)] (word12_G) {};
+  \node [blockC, fit = (word4_E) (word5_E) (word6_E)] (word456_E) {};
+  
+  %
+  \node [blockC, above = 0.2cm of word12_G] (SUBJ_G) {SUBJ};
+  \node [blockC, above = 0.2cm of word3_G] (FIN_G) {FIN};
+  \node [blockC, above = 0.2cm of word4_G] (DOBJ_G) {DOBJ};
+  \node [blockC, above = 0.2cm of word5_G] (ADV_MOD_G) {ADV\_MOD};
+  \node [blockC, above = 0.2cm of word6_G] (PRED_G) {PRED};
+  
+  \node [blockC, below = 0.2cm of word1_E] (SUBJ_E) {SUBJ};
+  \node [blockC, below = 0.2cm of word2_E] (FIN_E) {FIN};
+  \node [blockC, below = 0.2cm of word3_E] (ADV_MOD_E) {ADV\_MOD};
+  \node [blockC, below = 0.2cm of word456_E] (ADV_LOC_E) {ADV\_LOC};
+  
+  % fit
+  \node [blockB, fit = (word1_G) (word2_G) (SUBJ_G)] (1G) {};
+  \node [blockB, fit = (word3_G) (FIN_G)] (2G) {};
+  \node [blockB, fit = (word4_G) (DOBJ_G)] (3G) {};
+  \node [blockB, fit = (word5_G) (ADV_MOD_G)] (4G) {};
+  \node [blockB, fit = (word6_G) (PRED_G)] (5G) {};
+  
+  \node [blockB, fit = (word1_E) (SUBJ_E)] (1E) {};
+  \node [blockB, fit = (word2_E) (FIN_E)] (2E) {};
+  \node [blockB, fit = (word3_E) (ADV_MOD_E)] (3E) {};
+  \node [blockB, fit = (word4_E) (word5_E) (word6_E) (ADV_LOC_E)] (4E) {};
+  
+  % connect
+  \draw [LineDashed] (1G.south) -- (1E.north);
+  \draw [LineDashed] (2G.south) -- (2E.north);
+  \draw [LineDashed] (4G.south) -- (3E.north);
+  
+  \draw [LineSolid] (word1_G.south) -- (word5_E.north);
+  \draw [LineSolid] (word2_G.south) -- (word6_E.north);
+  \draw [LineSolid] (word4_G.south) -- (word1_E.north);
+  \draw [LineSolid] (word5_G.south) -- (word3_E.north);
+  \draw [LineSolid] (word6_G.south) -- (word2_E.north);
+  
+  \draw [LineDashed] (3G.north) -- ([yshift=0.5cm]3G.north);
+  \draw [fill] ([yshift=0.5cm]3G.north) circle [radius=2pt];
+  \draw [LineDashed] (5G.north) -- ([yshift=0.5cm]5G.north);
+  \draw [fill] ([yshift=0.5cm]5G.north) circle [radius=2pt];
+  \draw [LineDashed] (4E.south) -- ([yshift=-0.5cm]4E.south);
+  \draw [fill] ([yshift=-0.5cm]4E.south) circle [radius=2pt];
+  
+  \draw [LineSolid] ([xshift=0.5cm]word3_G.north) -- ([xshift=0.5cm, yshift=1cm]word3_G.north);
+  \draw [fill] ([xshift=0.5cm, yshift=1cm]word3_G.north) circle [radius=2pt];
+  \draw [LineSolid] ([xshift=0.5cm]word4_E.south) -- ([xshift=0.5cm, yshift=-1cm]word4_E.south);
+  \draw [fill] ([xshift=0.5cm, yshift=-1cm]word4_E.south) circle [radius=2pt];
+  
+  % text on the left
+  \node [blockText, left = 0cm of 1G, text width=1.5cm] {German\\source};
+  \node [blockText, left = 0cm of 1E, text width=1.5cm] {English\\target};
+
+\end{tikzpicture}
+
+\end{document}
