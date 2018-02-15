@@ -1060,11 +1060,12 @@ ISBN: &
 \IfStrEq{\lsISBNhardcover}{000-0-000000-00-0} 
 {\color{red}no hardcover ISBN}
 {\lsISBNhardcover~(Hardcover)}
-\\&
-\IfStrEq{\lsISBNsoftcover}{000-0-000000-00-0} 
-{\color{red}no softcover ISBN}
-{\lsISBNsoftcover~(Softcover)}
 \\
+% &
+% \IfStrEq{\lsISBNsoftcover}{000-0-000000-00-0} 
+% {\color{red}no softcover ISBN}
+% {\lsISBNsoftcover~(Softcover)}
+% \\
 %       & \lsISBNhardcover~(Hardcover)\\
 %       & \lsISBNsoftcover~(Softcover)\\
 %       & \lsISBNsoftcoverus~(Softcover US)\\
